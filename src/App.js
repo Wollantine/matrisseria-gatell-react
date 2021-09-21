@@ -1,21 +1,25 @@
 import { Router } from "@reach/router";
 import "./styles.css";
 import styled from "@emotion/styled";
-import ca from "./ca";
-import { TranslationContext } from "./TranslationProvider";
-import { MainPage, ProductsSection } from "./MainPage";
+import ca from "./translations/ca";
+import { TranslationContext } from "./translations/TranslationProvider";
+import { MainPage, ProductsSection } from "./pages/MainPage";
 import { Navbar, navbarHeight } from "./components/Navbar";
-import { wideDesktop, VerticalSpace } from "./DesignSystem";
-
-const ProductPage = ({ product }) => null;
+import { Footer } from "./components/Footer";
+import { wideDesktop, VerticalSpace, colors } from "./DesignSystem";
+import { Pala90 } from "./pages/Pala90";
+import { Pala120 } from "./pages/Pala120";
 
 const CenteredColumnContainer = styled.div`
   display: flex;
   justify-content: center;
+  background-color: ${colors.dirtyWhite};
+  min-height: 70vh;
 `;
 
 const CenteredColumn = styled.div`
   display: flex;
+  flex-direction: column;
   width: 90%;
   max-width: 970px;
   ${wideDesktop} {
@@ -36,12 +40,14 @@ export const Layout = () => {
         <CenteredColumn>
           <StyledRouter>
             <MainPage path="/" />
-            <ProductsSection path="products" />
-            <ProductPage path="products/pala90" product="pala90" />
-            <ProductPage path="products/pala120" product="pala120" />
+            <ProductsSection path="products" standalone />
+            <Pala90 path="products/pala90" />
+            <Pala120 path="products/pala120" />
           </StyledRouter>
+          <VerticalSpace value={40} />
         </CenteredColumn>
       </CenteredColumnContainer>
+      <Footer />
     </>
   );
 };

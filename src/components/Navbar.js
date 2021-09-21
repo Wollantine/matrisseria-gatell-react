@@ -1,17 +1,18 @@
 import styled from "@emotion/styled";
-import { Link } from "@reach/router";
 import { useContext } from "react";
-import { TranslationContext } from "../TranslationProvider";
-import { desktop } from "../DesignSystem";
+import { TranslationContext } from "../translations/TranslationProvider";
+import { desktop, colors } from "../DesignSystem";
+import { StyledLink } from "./StyledLink";
 
 export const navbarHeight = 54;
 
 const Nav = styled.nav`
   position: fixed;
+  z-index: 1;
   display: flex;
   width: 100%;
   height: ${navbarHeight}px;
-  background-color: #222222;
+  background-color: ${colors.darkGrey};
   justify-content: center;
 `;
 
@@ -34,15 +35,10 @@ const LinkList = styled.ul`
   ${resetUlStyles}
 `;
 
-const StyledLink = styled(Link)`
+const StyledNavLink = styled(StyledLink)`
   font-family: "Rubik", sans-serif;
-  color: white;
   font-size: 20px;
   line-height: 20px;
-  :hover {
-    color: #ff5533;
-    text-decoration: none;
-  }
 `;
 
 const Item = styled.li`
@@ -54,7 +50,7 @@ const Item = styled.li`
 
 const NavLink = ({ text, to, hideOnMobile }) => (
   <Item hideOnMobile={hideOnMobile}>
-    <StyledLink to={to}>{text}</StyledLink>
+    <StyledNavLink to={to}>{text}</StyledNavLink>
   </Item>
 );
 
@@ -73,7 +69,7 @@ export const Navbar = () => {
     <Nav>
       <NavbarCenter>
         <LinkList>
-          <NavLink to="/" text={t.navbar_home} />
+          <NavLink to="./" text={t.navbar_home} />
           <NavLink to="products" text={t.navbar_products} hideOnMobile />
         </LinkList>
         <LanguageSelector>

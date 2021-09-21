@@ -7,9 +7,10 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  border-radius: 15px;
   overflow: hidden;
   background-color: ${colors.white};
+  position: relative;
+  clip-path: polygon(34px 0, 100% 0, 100% 100%, 0 100%, 0 44px);
   transition: box-shadow 0.2s;
   border: none;
   padding: 0;

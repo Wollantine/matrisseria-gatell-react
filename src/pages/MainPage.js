@@ -1,16 +1,19 @@
 import { useContext } from "react";
-import { TranslationContext } from "./TranslationProvider";
+import {
+  TranslationContext,
+  useLanguage
+} from "../translations/TranslationProvider";
 import styled from "@emotion/styled";
-import { ProductCard } from "./components/ProductCard";
-import { CardList } from "./components/CardList";
-import { CardRow } from "./components/CardRow";
-import { fontFamilies, icons } from "./DesignSystem";
-import { StrengthCard } from "./components/StrengthCard";
+import { ProductCard } from "../components/ProductCard";
+import { ProductCardList } from "../components/ProductCardList";
+import { StrengthCardList } from "../components/StrengthCardList";
+import { fontFamilies, icons, VerticalSpace } from "../DesignSystem";
+import { StrengthCard } from "../components/StrengthCard";
 
 const StrengthsSection = () => {
   const t = useContext(TranslationContext);
   return (
-    <CardRow>
+    <StrengthCardList>
       <StrengthCard
         icon={icons.try}
         title={t.main_custom_title}
@@ -26,7 +29,7 @@ const StrengthsSection = () => {
         title={t.main_distribution_title}
         text={t.main_distribution_text}
       />
-    </CardRow>
+    </StrengthCardList>
   );
 };
 
@@ -35,23 +38,31 @@ const SectionTitle = styled.h2`
   margin-top: 30px;
 `;
 
-export const ProductsSection = () => {
+export const ProductsSection = ({ standalone }) => {
+  console.log(standalone);
   const t = useContext(TranslationContext);
+  const lang = useLanguage();
+  const languageRoute = lang === "es" ? "es/" : "";
+  const relativeLink = (product) =>
+    standalone ? `${product}` : `/${languageRoute}products/${product}`;
+  console.log(relativeLink("pala90"));
   return (
     <div id="products">
       <SectionTitle>{t.main_products}</SectionTitle>
-      <CardList>
+      <ProductCardList>
         <ProductCard
           name={t.pala90_name}
           price={t.pala90_price}
           image="/pala90.jpg"
+          link={relativeLink("pala90")}
         />
         <ProductCard
           name={t.pala120_name}
           price={t.pala120_price}
           image="/pala120.jpg"
+          link={relativeLink("pala120")}
         />
-      </CardList>
+      </ProductCardList>
     </div>
   );
 };
@@ -59,8 +70,9 @@ export const ProductsSection = () => {
 export const MainPage = () => {
   return (
     <>
+      <VerticalSpace value={40} />
       <StrengthsSection />
-      <div style={{ height: "20px" }} />
+      <VerticalSpace value={20} />
       <ProductsSection />
     </>
   );

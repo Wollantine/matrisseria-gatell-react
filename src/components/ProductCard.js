@@ -1,7 +1,75 @@
 import styled from "@emotion/styled";
-import { desktop, colors, Gap, fontFamilies } from "../DesignSystem";
+import { Link } from "@reach/router";
+import { useContext } from "react";
+import {
+  desktop,
+  colors,
+  Gap,
+  fontFamilies,
+  VerticalSpace,
+  HorizontalSpace,
+  icons
+} from "../DesignSystem";
+import { Icon } from "./Icon";
+import { TranslationContext } from "../translations/TranslationProvider";
 
-const Card = styled.button`
+const Price = styled.span`
+  font-family: ${fontFamilies.rubik};
+  font-size: 21px;
+  font-weight: bold;
+  min-width: 160px;
+  text-align: center;
+  align-self: center;
+  margin-right: 10px;
+`;
+
+const LearnMore = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  color: ${colors.grey};
+  & #learn_more_arrow {
+    transition: all 0.2s;
+  }
+`;
+
+const PriceColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  ${desktop} {
+    width: auto;
+  }
+`;
+
+const LearnMoreText = styled.span`
+  font-family: ${fontFamilies.openSans};
+  font-size: 16px;
+  line-height: 24px;
+  :hover {
+    text-decoration: underline;
+  }
+`;
+
+const EndBlock = ({ price }) => {
+  const t = useContext(TranslationContext);
+  return (
+    <PriceColumn>
+      <VerticalSpace value={24} />
+      <Price>{price}</Price>
+      <LearnMore id="learn_more">
+        <LearnMoreText>{t.main_learn_more}</LearnMoreText>
+        <HorizontalSpace value={5} />
+        <Icon id="learn_more_arrow" type={icons.arrow_right_alt} />
+        <HorizontalSpace value={24} />
+      </LearnMore>
+    </PriceColumn>
+  );
+};
+
+const Card = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,12 +78,19 @@ const Card = styled.button`
   border-radius: 15px;
   overflow: hidden;
   background-color: ${colors.white};
-  transition: box-shadow 0.2s;
+  transition: all 0.2s;
   cursor: pointer;
-  border: none;
-  padding: 0;
+  text-decoration: none;
+  color: ${colors.black};
   :hover {
     box-shadow: 3px 3px 5px #888888;
+    & #learn_more_arrow {
+      transform: translateX(5px);
+    }
+    & #learn_more,
+    & #name {
+      color: ${colors.orange};
+    }
   }
   :active {
     box-shadow: none;
@@ -36,36 +111,23 @@ const Picture = styled.img`
 
 const Name = styled.span`
   font-family: ${fontFamilies.rubik};
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
   width: 90%;
-  text-decoration: underline;
   ${desktop} {
     text-align: left;
   }
 `;
 
-const Price = styled.span`
-  font-family: ${fontFamilies.rubik};
-  font-size: 28px;
-  font-weight: bold;
-  min-width: 120px;
-  text-align: center;
-  align-self: flex-end;
-  margin-right: 10px;
-  ${desktop} {
-    align-self: center;
-  }
-`;
-
-export const ProductCard = ({ name, price, image }) => {
+export const ProductCard = ({ name, price, image, link }) => {
   return (
-    <Card role="button" tabindex="0">
+    <Card role="button" tabIndex="0" to={link}>
       <Picture src={image} />
       <Gap mobile={40} desktop={50} />
-      <Name>{name}</Name>
-      <Gap mobile={30} desktop={10} />
-      <Price>{price}</Price>
+      <Name id="name">{name}</Name>
+      <Gap mobile={0} desktop={20} />
+      <EndBlock price={price} />
       <Gap mobile={10} desktop={0} />
     </Card>
   );
