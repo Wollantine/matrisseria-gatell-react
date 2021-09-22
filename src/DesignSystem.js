@@ -8,6 +8,7 @@ export const colors = {
   orange: "#ff6500",
   white: "#fafaff",
   dirtyWhite: "#e4e4e4",
+  blueishWhite: "#c3c8da",
   grey: "#555555",
   darkGrey: "#222222",
   black: "#151515"
@@ -30,7 +31,8 @@ export const HorizontalSpace = styled.div`
 
 export const fontFamilies = {
   rubik: `"Rubik", sans-serif`,
-  openSans: `"Open Sans", sans-serif`
+  openSans: `"Open Sans", sans-serif`,
+  workSans: `"Work Sans", sans-serif`
 };
 
 export const icons = {

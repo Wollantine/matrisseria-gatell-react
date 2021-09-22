@@ -8,4 +8,5 @@ const MaterialIcon = ({ type, className, ...props }) => (
 
 export const Icon = styled(MaterialIcon)`
   font-size: ${(props) => props.size}px;
+  user-select: none;
 `;

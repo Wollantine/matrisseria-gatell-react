@@ -13,7 +13,7 @@ import { Pala120 } from "./pages/Pala120";
 const CenteredColumnContainer = styled.div`
   display: flex;
   justify-content: center;
-  background-color: ${colors.dirtyWhite};
+  background-color: ${colors.blueishWhite};
   min-height: 70vh;
 `;
 

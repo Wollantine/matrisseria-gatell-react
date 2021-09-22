@@ -1,7 +1,12 @@
 import styled from "@emotion/styled";
 import { useContext } from "react";
 import { TranslationContext } from "../translations/TranslationProvider";
-import { desktop, colors } from "../DesignSystem";
+import {
+  desktop,
+  colors,
+  HorizontalSpace,
+  fontFamilies
+} from "../DesignSystem";
 import { StyledLink } from "./StyledLink";
 
 export const navbarHeight = 54;
@@ -31,27 +36,53 @@ const resetUlStyles = `
 const LinkList = styled.ul`
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 15px;
+  margin: 0;
   ${resetUlStyles}
 `;
 
 const StyledNavLink = styled(StyledLink)`
-  font-family: "Rubik", sans-serif;
+  font-family: ${fontFamilies.rubik};
   font-size: 20px;
   line-height: 20px;
 `;
 
+const HomeLink = styled(StyledLink)`
+  font-family: ${fontFamilies.workSans};
+  font-size: 20px;
+  line-height: 20px;
+  text-decoration: none;
+  font-weight: bold;
+`;
+
 const Item = styled.li`
-  display: ${(props) => (props.hideOnMobile ? "none" : "inline-block")};
+  display: ${(props) => (props.hideOnMobile ? "none" : "flex")};
+  align-items: center;
+  padding: 0 15px;
+  height: 54px;
   ${desktop} {
-    display: inline-block;
+    display: flex;
   }
 `;
 
 const NavLink = ({ text, to, hideOnMobile }) => (
-  <Item hideOnMobile={hideOnMobile}>
-    <StyledNavLink to={to}>{text}</StyledNavLink>
-  </Item>
+  <StyledNavLink to={to}>
+    <Item hideOnMobile={hideOnMobile}>{text}</Item>
+  </StyledNavLink>
+);
+
+const HeaderLogo = styled.img`
+  height: 44px;
+`;
+
+const HomeNavLink = ({ text, to }) => (
+  <HomeLink to={to}>
+    <Item>
+      <HeaderLogo src="logo_dark_no_text.jpg" />
+      <HorizontalSpace value={10} />
+      {text}
+    </Item>
+  </HomeLink>
 );
 
 const LanguageSelector = styled.ul`
@@ -69,7 +100,7 @@ export const Navbar = () => {
     <Nav>
       <NavbarCenter>
         <LinkList>
-          <NavLink to="./" text={t.navbar_home} />
+          <HomeNavLink to="./" text={t.navbar_home} />
           <NavLink to="products" text={t.navbar_products} hideOnMobile />
         </LinkList>
         <LanguageSelector>

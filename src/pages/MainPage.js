@@ -39,13 +39,11 @@ const SectionTitle = styled.h2`
 `;
 
 export const ProductsSection = ({ standalone }) => {
-  console.log(standalone);
   const t = useContext(TranslationContext);
   const lang = useLanguage();
   const languageRoute = lang === "es" ? "es/" : "";
   const relativeLink = (product) =>
     standalone ? `${product}` : `/${languageRoute}products/${product}`;
-  console.log(relativeLink("pala90"));
   return (
     <div id="products">
       <SectionTitle>{t.main_products}</SectionTitle>

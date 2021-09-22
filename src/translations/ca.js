@@ -9,7 +9,7 @@ export default {
   navbar_change_language: "ES",
   navbar_change_language_link: "/es",
   // Main page
-  main_products: "Productes destacats",
+  main_products: "Productes disponibles",
   main_custom_title: "Encàrrecs a mida",
   main_custom_text:
     "Fem encàrrecs personalitzats. Necessiteu una peça específica o una matriu particular? Demaneu-nos-la.",

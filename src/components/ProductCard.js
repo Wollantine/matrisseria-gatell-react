@@ -8,7 +8,8 @@ import {
   fontFamilies,
   VerticalSpace,
   HorizontalSpace,
-  icons
+  icons,
+  wideDesktop
 } from "../DesignSystem";
 import { Icon } from "./Icon";
 import { TranslationContext } from "../translations/TranslationProvider";
@@ -21,6 +22,10 @@ const Price = styled.span`
   text-align: center;
   align-self: center;
   margin-right: 10px;
+  ${wideDesktop} {
+    font-size: 28px;
+    min-width: 220px;
+  }
 `;
 
 const LearnMore = styled.div`
@@ -48,6 +53,7 @@ const LearnMoreText = styled.span`
   font-family: ${fontFamilies.openSans};
   font-size: 16px;
   line-height: 24px;
+  transition: all 0.2s;
   :hover {
     text-decoration: underline;
   }
@@ -84,12 +90,12 @@ const Card = styled(Link)`
   color: ${colors.black};
   :hover {
     box-shadow: 3px 3px 5px #888888;
+    color: ${colors.orange};
+    & #learn_more {
+      color: ${colors.orange};
+    }
     & #learn_more_arrow {
       transform: translateX(5px);
-    }
-    & #learn_more,
-    & #name {
-      color: ${colors.orange};
     }
   }
   :active {
@@ -118,6 +124,9 @@ const Name = styled.span`
   ${desktop} {
     text-align: left;
   }
+  ${wideDesktop} {
+    font-size: 21px;
+  }
 `;
 
 export const ProductCard = ({ name, price, image, link }) => {
@@ -125,7 +134,7 @@ export const ProductCard = ({ name, price, image, link }) => {
     <Card role="button" tabIndex="0" to={link}>
       <Picture src={image} />
       <Gap mobile={40} desktop={50} />
-      <Name id="name">{name}</Name>
+      <Name>{name}</Name>
       <Gap mobile={0} desktop={20} />
       <EndBlock price={price} />
       <Gap mobile={10} desktop={0} />
