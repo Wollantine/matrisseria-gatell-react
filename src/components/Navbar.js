@@ -78,7 +78,7 @@ const HeaderLogo = styled.img`
 const HomeNavLink = ({ text, to }) => (
   <HomeLink to={to}>
     <Item>
-      <HeaderLogo src="logo_dark_no_text.jpg" />
+      <HeaderLogo src="/logo_dark_no_text.jpg" />
       <HorizontalSpace value={10} />
       {text}
     </Item>

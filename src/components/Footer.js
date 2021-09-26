@@ -117,7 +117,7 @@ export const Footer = () => {
         </ContactList>
       </ContactBlock>
       <BrandBlock>
-        <Logo src="logo.jpg" />
+        <Logo src="/logo.jpg" />
         <Copyright>Copyright © 2021 Matrisseria Gatell, S.L.</Copyright>
       </BrandBlock>
     </FooterContainer>

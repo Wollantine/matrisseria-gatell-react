@@ -24,13 +24,18 @@ export default {
   footer_contact_title: "Ens podeu trobar a:",
   // Products
   product_manufacturer: "Directe del fabricant",
-  product_per_unit: " / unitat",
-  product_order: "Demaneu-ne",
-  pala90_name: "Pala per a fratasadora 90cm",
-  pala90_price: "28,00 - 31,00 €",
+  product_units_title: "Jocs",
+  product_prices_title: "Preu per joc",
+  product_end_stock: "Preus vàlids fins a final d'existències.",
+  product_shipping_included: "Despeses d'enviament a la Península incloses",
+  product_shipping_extra:
+    "Per enviaments a les illes i a altres estats, les despeses poden variar.",
+  product_order: "Per fer una comanda, envieu un email a %s",
+  pala90_name: "Joc de 4 pales per a fratasadora 90cm",
+  pala90_price: "30,04 - 42,13 €",
   pala90_description: "",
   pala90_specs: "",
-  pala120_name: "Pala per a fratasadora 120cm",
+  pala120_name: "Joc de 4 pales per a fratasadora 120cm",
   pala120_price: "29,50 - 32,50 €",
   pala120_description: "",
   pala120_specs: ""

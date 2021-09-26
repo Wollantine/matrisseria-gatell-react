@@ -7,7 +7,7 @@ export const wideDesktop = "@media (min-width: 1024px)";
 export const colors = {
   orange: "#ff6500",
   white: "#fafaff",
-  dirtyWhite: "#e4e4e4",
+  dirtyWhite: "#eef0f5",
   blueishWhite: "#c3c8da",
   grey: "#555555",
   darkGrey: "#222222",
@@ -29,6 +29,13 @@ export const HorizontalSpace = styled.div`
   width: ${(props) => props.value}px;
 `;
 
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: ${(props) => props.alignItems};
+  justify-content: ${(props) => props.justifyContent};
+`;
+
 export const fontFamilies = {
   rubik: `"Rubik", sans-serif`,
   openSans: `"Open Sans", sans-serif`,
@@ -42,5 +49,6 @@ export const icons = {
   place: "place",
   call: "call",
   email: "email",
-  arrow_right_alt: "arrow_right_alt"
+  arrow_right_alt: "arrow_right_alt",
+  local_shipping: "local_shipping"
 };
