@@ -39,10 +39,11 @@ export default {
   pala90_name: "Juego de 4 palas fratasadora de acabado 90cm",
   pala90_price: "30,04 - 42,13 €",
   pala90_description:
-    "Conjunto de 4 palas para fratasadora, perfectas para conseguir un fin de fratasado fino para pavimentos de hormigón. Su composición de acero carbono les garantiza una gran resistencia y duración. <br/>Modelo de 90cm de largo con 3 agujeros para tornillos.",
+    "Conjunto de 4 palas para fratasadora, perfectas para conseguir un final de fratasado liso para pavimentos de hormigón. Su composición de acero carbono les garantiza una gran resistencia y duración. <br/>Modelo de 90cm de largo con 3 agujeros para tornillos.",
   pala90_specs: "",
   pala120_name: "Juego de 4 palas fratasadora de acabado 120cm",
   pala120_price: "29,50 - 32,50 €",
-  pala120_description: "",
+  pala120_description:
+    "Conjunto de 4 palas para fratasadora, perfectas para conseguir un fin de fratasado fino para pavimentos de hormigón. Su composición de acero carbono les garantiza una gran resistencia y duración. <br/>Modelo de 120cm de largo con 6 agujeros para tornillos.",
   pala120_specs: ""
 };

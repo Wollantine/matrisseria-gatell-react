@@ -42,7 +42,8 @@ export default {
     "Conjunt de 4 pales per a fratasadora, perfectes per aconseguir un final de fratasat llis per a paviments de formigó. La seva composició d'acer al carboni els proporciona gran resistència i durabilitat.<br/>Model de 90cm de llarg amb 3 forats per a caragols.",
   pala90_specs: "",
   pala120_name: "Joc de 4 pales fratasadora d'acabat 120cm",
-  pala120_price: "29,50 - 32,50 €",
-  pala120_description: "",
+  pala120_price: "?? - ?? €",
+  pala120_description:
+    "Conjunt de 4 pales per a fratasadora, perfectes per aconseguir un final de fratasat llis per a paviments de formigó. La seva composició d'acer al carboni els proporciona gran resistència i durabilitat.<br/>Model de 120cm de llarg amb 6 forats per a caragols.",
   pala120_specs: ""
 };

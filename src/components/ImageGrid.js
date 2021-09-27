@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { desktop } from "../DesignSystem";
+import { desktop, wideDesktop } from "../DesignSystem";
 import { StyledExternalLink } from "./StyledLink";
 
 const Link = styled(StyledExternalLink)`
@@ -12,6 +12,9 @@ const Link = styled(StyledExternalLink)`
 const Img = styled.img`
   max-width: 350px;
   width: 100%;
+  ${wideDesktop} {
+    max-width: 290px;
+  }
 `;
 
 const Grid = styled.div`

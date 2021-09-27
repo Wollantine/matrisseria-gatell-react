@@ -28,7 +28,12 @@ export const Pala90 = () => {
         <SectionText>{block}</SectionText>
       ))}
       <ImageGrid
-        images={["/pala90_pala120_comparades.jpg", "/calaix_pala90.jpg"]}
+        images={[
+          "/pala90_pala120_comparades.jpg",
+          "/pala90.jpg",
+          "/calaix_pala90.jpg",
+          "/pales.jpg"
+        ]}
       />
 
       <SectionTitle>{t.product_specs_title}</SectionTitle>
