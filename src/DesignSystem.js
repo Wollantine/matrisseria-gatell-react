@@ -50,5 +50,8 @@ export const icons = {
   call: "call",
   email: "email",
   arrow_right_alt: "arrow_right_alt",
-  local_shipping: "local_shipping"
+  local_shipping: "local_shipping",
+  shopping_cart: "shopping_cart"
 };
+
+export const borderRadius = "15px";

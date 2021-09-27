@@ -9,7 +9,8 @@ import {
   VerticalSpace,
   HorizontalSpace,
   icons,
-  wideDesktop
+  wideDesktop,
+  borderRadius
 } from "../DesignSystem";
 import { Icon } from "./Icon";
 import { TranslationContext } from "../translations/TranslationProvider";
@@ -81,7 +82,7 @@ const Card = styled(Link)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-radius: 15px;
+  border-radius: ${borderRadius};
   overflow: hidden;
   background-color: ${colors.white};
   transition: all 0.2s;

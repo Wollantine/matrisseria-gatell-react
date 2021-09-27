@@ -62,7 +62,7 @@ const NoVatCell = styled.td`
 `;
 
 const format = (eur, locale) =>
-  new Intl.NumberFormat("ca-es", { style: "currency", currency: "EUR" }).format(
+  new Intl.NumberFormat(locale, { style: "currency", currency: "EUR" }).format(
     eur
   );
 
@@ -72,7 +72,7 @@ const NoVatPrice = ({ price }) => {
   return formattedPrice;
 };
 
-export const PriceTable = ({ priceData, unitsTitle, priceTitle }) => {
+export const PriceTable = ({ priceData, unitsTitle, priceTitle, locale }) => {
   return (
     <Table>
       <thead>
@@ -86,7 +86,7 @@ export const PriceTable = ({ priceData, unitsTitle, priceTitle }) => {
         {priceData.map((row) => (
           <TableRow key={row.units}>
             <UnitsCell>{row.units}</UnitsCell>
-            <PriceCell>{format(row.price)}</PriceCell>
+            <PriceCell>{format(row.price, locale)}</PriceCell>
             <NoVatCell>
               <NoVatPrice price={row.price} />
             </NoVatCell>

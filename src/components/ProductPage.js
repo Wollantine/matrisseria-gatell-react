@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import styled from "@emotion/styled";
 import { TranslationContext } from "../translations/TranslationProvider";
 import { PriceTable } from "./PriceTable";
@@ -13,13 +13,14 @@ import {
   icons,
   wideDesktop
 } from "../DesignSystem";
+import { Order } from "./Order";
 
 const ContainerCard = styled.div`
   background-color: ${colors.white};
   padding: 20px;
 `;
 
-const ProductSummary = styled(ContainerCard)`
+const ProductSummary = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,6 +84,8 @@ const ShippingIncludedText = styled.span`
 const ShippingExtra = styled(ShippingIncluded)`
   font-size: 16px;
   font-weight: normal;
+  text-align: left;
+  padding-left: 36px;
 `;
 
 const PriceObservation = styled.p`
@@ -95,37 +98,53 @@ const PriceObservation = styled.p`
 
 const PriceCalculator = () => null;
 
+export const SectionTitle = styled.h2`
+  font-family: ${fontFamilies.rubik};
+  text-align: left;
+`;
+
+export const SectionText = styled.p`
+  font-family: ${fontFamilies.openSans};
+  text-align: left;
+`;
+
 export const ProductPage = ({ name, priceData, image, children }) => {
   const t = useContext(TranslationContext);
+  useEffect(() => window.scrollTo(0, 0), []);
   return (
     <Column>
       <VerticalSpace value={50} />
-      <ProductSummary>
-        <ProductImage alt={name} src={image} />
-        <Summary>
-          <ProductName>{name}</ProductName>
-          <Pill>{t.product_manufacturer}</Pill>
-          <VerticalSpace value={20} />
-          <PriceTable
-            priceData={priceData}
-            unitsTitle={t.product_units_title}
-            priceTitle={t.product_prices_title}
-          />
-          <VerticalSpace value={20} />
-          <ShippingIncluded>
-            <Icon type={icons.local_shipping} />
-            <HorizontalSpace value={10} />
-            <ShippingIncludedText>
-              {t.product_shipping_included}*
-            </ShippingIncludedText>
-          </ShippingIncluded>
-          <VerticalSpace value={15} />
-          <ShippingExtra>(*) {t.product_shipping_extra}</ShippingExtra>
-          <VerticalSpace value={15} />
-          <PriceObservation>{t.product_end_stock}</PriceObservation>
-          <PriceCalculator />
-        </Summary>
-      </ProductSummary>
+      <ContainerCard>
+        <ProductSummary>
+          <ProductImage alt={name} src={image} />
+          <Summary>
+            <ProductName>{name}</ProductName>
+            <Pill>{t.product_manufacturer}</Pill>
+            <VerticalSpace value={20} />
+            <PriceTable
+              priceData={priceData}
+              unitsTitle={t.product_units_title}
+              priceTitle={t.product_prices_title}
+              locale={t.locale}
+            />
+            <VerticalSpace value={20} />
+            <ShippingIncluded>
+              <Icon type={icons.local_shipping} size={28} />
+              <HorizontalSpace value={10} />
+              <ShippingIncludedText>
+                {t.product_shipping_included}*
+              </ShippingIncludedText>
+            </ShippingIncluded>
+            <VerticalSpace value={15} />
+            <ShippingExtra>(*) {t.product_shipping_extra}</ShippingExtra>
+            <VerticalSpace value={15} />
+            <PriceObservation>{t.product_end_stock}</PriceObservation>
+            <PriceCalculator />
+          </Summary>
+        </ProductSummary>
+        <VerticalSpace value={20} />
+        <Order />
+      </ContainerCard>
       <VerticalSpace value={50} />
       <ContainerCard>{children}</ContainerCard>
     </Column>

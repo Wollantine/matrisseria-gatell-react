@@ -2,6 +2,7 @@ import { Router } from "@reach/router";
 import "./styles.css";
 import styled from "@emotion/styled";
 import ca from "./translations/ca";
+import es from "./translations/es";
 import { TranslationContext } from "./translations/TranslationProvider";
 import { MainPage, ProductsSection } from "./pages/MainPage";
 import { Navbar, navbarHeight } from "./components/Navbar";
@@ -59,7 +60,7 @@ const Catalan = ({ children }) => (
 );
 
 const Spanish = ({ children }) => (
-  <TranslationContext.Provider value={ca}>
+  <TranslationContext.Provider value={es}>
     <Layout />
   </TranslationContext.Provider>
 );
