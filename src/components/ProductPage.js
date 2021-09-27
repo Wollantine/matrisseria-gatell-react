@@ -113,7 +113,7 @@ export const ProductPage = ({ name, priceData, image, children }) => {
   useEffect(() => window.scrollTo(0, 0), []);
   return (
     <Column>
-      <VerticalSpace value={50} />
+      <VerticalSpace value={30} />
       <ContainerCard>
         <ProductSummary>
           <ProductImage alt={name} src={image} />
@@ -145,7 +145,7 @@ export const ProductPage = ({ name, priceData, image, children }) => {
         <VerticalSpace value={20} />
         <Order />
       </ContainerCard>
-      <VerticalSpace value={50} />
+      <VerticalSpace value={30} />
       <ContainerCard>{children}</ContainerCard>
     </Column>
   );

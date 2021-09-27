@@ -5,6 +5,7 @@ import {
   SectionTitle,
   SectionText
 } from "../components/ProductPage";
+import { ImageGrid } from "../components/ImageGrid";
 
 export const Pala120 = () => {
   const t = useContext(TranslationContext);
@@ -19,7 +20,7 @@ export const Pala120 = () => {
       {descriptionBlocks.map((block) => (
         <SectionText>{block}</SectionText>
       ))}
-      <SectionText>- altres fotos</SectionText>
+      <ImageGrid images={["/pala90_pala120_comparades.jpg", "/pales.jpg"]} />
 
       <SectionTitle>{t.product_specs_title}</SectionTitle>
       <SectionText>- mides</SectionText>

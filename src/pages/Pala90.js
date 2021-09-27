@@ -5,6 +5,7 @@ import {
   SectionTitle,
   SectionText
 } from "../components/ProductPage";
+import { ImageGrid } from "../components/ImageGrid";
 
 const priceTableData = (t) => [
   { units: "1", price: 42.13 },
@@ -26,7 +27,9 @@ export const Pala90 = () => {
       {descriptionBlocks.map((block) => (
         <SectionText>{block}</SectionText>
       ))}
-      <SectionText>- altres fotos</SectionText>
+      <ImageGrid
+        images={["/pala90_pala120_comparades.jpg", "/calaix_pala90.jpg"]}
+      />
 
       <SectionTitle>{t.product_specs_title}</SectionTitle>
       <SectionText>- mides</SectionText>

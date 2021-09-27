@@ -77,7 +77,7 @@ export const Order = () => {
   return (
     <OrderBlock>
       <HorizontalSpaceTablet value={20} />
-      <CartIcon type={icons.shopping_cart} size={60} />
+      <CartIcon type={icons.shopping_cart} />
       <HorizontalSpace value={20} />
       <OrderText>
         <VerticalSpace value={10} />
